@@ -1,8 +1,24 @@
+"use client";
+
+import { useState } from "react";
 import BalanceCard from "./components/BalanceCard";
 import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
 
 export default function Home() {
+
+  const [transactions, setTransactions] = useState([]);
+
+  const income = transactions
+  .filter((transaction) => transaction.type === "Income")
+  .reduce((total, transaction) => total + transaction.amount, 0);
+
+const expenses = transactions
+  .filter((transaction) => transaction.type === "Expense")
+  .reduce((total, transaction) => total + transaction.amount, 0);
+
+const balance = income - expenses;
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-10 px-4">
 
@@ -16,11 +32,17 @@ export default function Home() {
           Track your income and expenses easily.
         </p>
 
-        <BalanceCard />
+        <BalanceCard balance={balance} />
 
-        <SummaryCards />
+        <SummaryCards
+            income={income}
+            expenses={expenses}
+        />
 
-        <TransactionForm />
+        <TransactionForm
+  transactions={transactions}
+  setTransactions={setTransactions}
+/>
 
       </div>
 

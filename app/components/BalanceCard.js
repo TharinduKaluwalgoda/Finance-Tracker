@@ -1,4 +1,4 @@
-export default function BalanceCard() {
+export default function BalanceCard({ balance }) {
   return (
     <div className="bg-white p-8 rounded-3xl shadow-lg mt-8 border border-gray-100">
 
@@ -7,7 +7,7 @@ export default function BalanceCard() {
       </h2>
 
       <p className="text-5xl font-bold text-gray-800 mt-4">
-        $0.00
+        ${balance}
       </p>
 
     </div>

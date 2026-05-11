@@ -1,4 +1,7 @@
-export default function SummaryCards() {
+export default function SummaryCards({
+  income,
+  expenses,
+}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
 
@@ -8,7 +11,7 @@ export default function SummaryCards() {
         </h2>
 
         <p className="text-4xl font-bold mt-3">
-          $0.00
+          ${income}
         </p>
       </div>
 
@@ -18,7 +21,7 @@ export default function SummaryCards() {
         </h2>
 
         <p className="text-4xl font-bold mt-3">
-          $0.00
+          ${expenses}
         </p>
       </div>
 
