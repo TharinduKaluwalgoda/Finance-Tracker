@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BalanceCard from "./components/BalanceCard";
 import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
@@ -9,6 +9,21 @@ import TransactionList from "./components/TransactionList";
 export default function Home() {
 
   const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+  const savedTransactions = localStorage.getItem("transactions");
+
+  if (savedTransactions) {
+    setTransactions(JSON.parse(savedTransactions));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem(
+    "transactions",
+    JSON.stringify(transactions)
+  );
+}, [transactions]);
 
   const income = transactions
   .filter((transaction) => transaction.type === "Income")
