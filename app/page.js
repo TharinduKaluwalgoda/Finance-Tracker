@@ -5,6 +5,7 @@ import BalanceCard from "./components/BalanceCard";
 import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
+import ExpenseChart from "./components/ExpenseChart";
 
 export default function Home() {
 
@@ -63,6 +64,11 @@ const balance = income - expenses;
         <TransactionList
             transactions={transactions}
             setTransactions={setTransactions}
+        />
+
+        <ExpenseChart
+            income={income}
+            expenses={expenses}
         />
 
       </div>
