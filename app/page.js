@@ -4,6 +4,7 @@ import { useState } from "react";
 import BalanceCard from "./components/BalanceCard";
 import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
+import TransactionList from "./components/TransactionList";
 
 export default function Home() {
 
@@ -40,9 +41,14 @@ const balance = income - expenses;
         />
 
         <TransactionForm
-  transactions={transactions}
-  setTransactions={setTransactions}
-/>
+            transactions={transactions}
+            setTransactions={setTransactions}
+        />
+
+        <TransactionList
+            transactions={transactions}
+            setTransactions={setTransactions}
+        />
 
       </div>
 
