@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function TransactionList({
   transactions,
@@ -59,6 +60,7 @@ export default function TransactionList({
   return (
     <div className="bg-white p-8 rounded-3xl shadow-lg mt-6 border border-gray-100">
 
+      {/* HEADER */}
       <div className="flex items-center justify-between mb-6">
 
         <h2 className="text-2xl font-bold text-gray-800">
@@ -71,6 +73,7 @@ export default function TransactionList({
 
       </div>
 
+      {/* EMPTY STATE */}
       {transactions.length === 0 ? (
 
         <div className="text-center py-10 text-gray-400">
@@ -83,8 +86,14 @@ export default function TransactionList({
 
           {transactions.map((transaction) => (
 
-            <div
+            <motion.div
               key={transaction.id}
+
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+
+              transition={{ duration: 0.3 }}
+
               className="flex items-center justify-between bg-gray-50 p-5 rounded-2xl"
             >
 
@@ -114,6 +123,7 @@ export default function TransactionList({
                 {/* TAGS */}
                 <div className="flex items-center gap-2 mt-2">
 
+                  {/* TYPE */}
                   <span
                     className={
                       transaction.type === "Income"
@@ -124,6 +134,7 @@ export default function TransactionList({
                     {transaction.type}
                   </span>
 
+                  {/* CATEGORY */}
                   <span className="text-xs bg-gray-200 text-gray-700 px-3 py-1 rounded-full">
                     {transaction.category}
                   </span>
@@ -198,7 +209,7 @@ export default function TransactionList({
 
               </div>
 
-            </div>
+            </motion.div>
 
           ))}
 
