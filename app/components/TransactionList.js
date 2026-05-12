@@ -15,7 +15,7 @@ export default function TransactionList({
     <div className="bg-white p-8 rounded-3xl shadow-lg mt-6 border border-gray-100">
 
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold text-gray-800">
           Transactions
         </h2>
 
@@ -34,23 +34,33 @@ export default function TransactionList({
           {transactions.map((transaction) => (
             <div
               key={transaction.id}
-              className="flex items-center justify-between bg-gray-50 p-4 rounded-2xl"
+              className="flex items-center justify-between bg-gray-50 p-5 rounded-2xl"
             >
 
               <div>
+
                 <h3 className="font-semibold text-lg text-gray-800">
                   {transaction.title}
                 </h3>
 
-                <span
-                  className={
-                    transaction.type === "Income"
-                      ? "text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full"
-                      : "text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full"
-                  }
-                >
-                  {transaction.type}
-                </span>
+                <div className="flex items-center gap-2 mt-2">
+
+                  <span
+                    className={
+                      transaction.type === "Income"
+                        ? "text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full"
+                        : "text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full"
+                    }
+                  >
+                    {transaction.type}
+                  </span>
+
+                  <span className="text-xs bg-gray-200 text-gray-700 px-3 py-1 rounded-full">
+                    {transaction.category}
+                  </span>
+
+                </div>
+
               </div>
 
               <div className="flex items-center gap-4">
@@ -67,7 +77,7 @@ export default function TransactionList({
 
                 <button
                   onClick={() => deleteTransaction(transaction.id)}
-                  className="bg-black text-white px-3 py-2 rounded-lg hover:bg-gray-800 transition"
+                  className="bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 transition"
                 >
                   Delete
                 </button>

@@ -10,6 +10,7 @@ export default function TransactionForm({
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("Income");
+  const [category, setCategory] = useState("Food");
 
   const addTransaction = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ export default function TransactionForm({
       title,
       amount: Number(amount),
       type,
+      category,
     };
 
     setTransactions([
@@ -29,6 +31,7 @@ export default function TransactionForm({
     setTitle("");
     setAmount("");
     setType("Income");
+    setCategory("Food");
   };
 
   return (
@@ -64,6 +67,20 @@ className="w-full border border-gray-200 p-4 rounded-xl outline-none focus:ring-
         >
           <option>Income</option>
           <option>Expense</option>
+        </select>
+
+        <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full border border-gray-200 p-4 rounded-xl outline-none focus:ring-2 focus:ring-black text-black bg-white"
+        >
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Shopping</option>
+            <option>Bills</option>
+            <option>Entertainment</option>
+            <option>Salary</option>
+            <option>Freelance</option>
         </select>
 
         <button
