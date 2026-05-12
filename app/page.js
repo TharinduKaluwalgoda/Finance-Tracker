@@ -7,6 +7,7 @@ import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import ExpenseChart from "./components/ExpenseChart";
+import StatsCards from "./components/StatsCards";
 
 export default function Home() {
 
@@ -188,6 +189,10 @@ export default function Home() {
         <TransactionList
           transactions={filteredTransactions}
           setTransactions={setTransactions}
+        />
+
+        <StatsCards
+          transactions={transactions}
         />
 
       </div>
