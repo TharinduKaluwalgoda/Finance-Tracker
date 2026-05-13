@@ -8,6 +8,7 @@ import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import ExpenseChart from "./components/ExpenseChart";
 import StatsCards from "./components/StatsCards";
+import MonthlyAnalytics from "./components/MonthlyAnalytics";
 
 export default function Home() {
 
@@ -149,6 +150,10 @@ export default function Home() {
         <ExpenseChart
           income={income}
           expenses={expenses}
+        />
+
+        <MonthlyAnalytics
+          transactions={transactions}
         />
 
         <TransactionForm

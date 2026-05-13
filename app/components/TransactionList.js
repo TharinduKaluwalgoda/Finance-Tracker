@@ -138,6 +138,10 @@ export default function TransactionList({
                   <span className="text-xs bg-gray-200 text-gray-700 px-3 py-1 rounded-full">
                     {transaction.category}
                   </span>
+                <p className="text-sm text-gray-500 mt-2">
+                    {transaction.date}
+                </p>
+
 
                 </div>
 
