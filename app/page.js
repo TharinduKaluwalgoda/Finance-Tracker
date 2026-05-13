@@ -9,6 +9,8 @@ import TransactionList from "./components/TransactionList";
 import ExpenseChart from "./components/ExpenseChart";
 import StatsCards from "./components/StatsCards";
 import MonthlyAnalytics from "./components/MonthlyAnalytics";
+import CategoryChart from "./components/CategoryChart";
+import ExportCSV from "./components/ExportCSV";
 
 export default function Home() {
 
@@ -156,6 +158,10 @@ export default function Home() {
           transactions={transactions}
         />
 
+        <CategoryChart
+          transactions={transactions}
+        />
+
         <TransactionForm
           transactions={transactions}
           setTransactions={setTransactions}
@@ -194,6 +200,10 @@ export default function Home() {
         <TransactionList
           transactions={filteredTransactions}
           setTransactions={setTransactions}
+        />
+
+        <ExportCSV
+          transactions={transactions}
         />
 
         <StatsCards
